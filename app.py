@@ -42,11 +42,13 @@ with col1:
    
 with col2:
     st.subheader("Rose Water Toner")
+    st.image("https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19", use_container_width=True)
     st.write("£8.99")
     st.button("Add to Basket", key="toner")
 
 with col3:
     st.subheader("Shea Butter Moisturiser")
+    st.image("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108", use_container_width=True)
     st.write("£10.99")
     st.button("Add to Basket", key="shea")
 
