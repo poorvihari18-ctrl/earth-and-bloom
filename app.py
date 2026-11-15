@@ -1,7 +1,7 @@
 
 import streamlit as st
 import os
-
+import streamlit.components.v1 as components
 # ==========================================
 # EARTH & BLOOM - LUXURY SKINCARE STORE
 # ==========================================
@@ -196,173 +196,105 @@ st.markdown(
 st.divider()
 
 
+
 # ==========================================
 # LUXURY HERO BANNER
 # ==========================================
 
-st.markdown("""
-<div class="hero">
+components.html("""
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-    <p class="hero-label">
-        THE NATURAL BEAUTY COLLECTION
-    </p>
+    body {
+        margin: 0;
+        font-family: Georgia, serif;
+    }
 
-    <h1>
-        Discover the Beauty<br>of Nature
-    </h1>
+    .hero {
+        background: #26372D;
+        color: #F7F4ED;
+        text-align: center;
+        padding: 85px 25px;
+        min-height: 390px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: riseIn 1s ease-out;
+    }
 
-    <p class="hero-description">
-        Thoughtfully inspired skincare.<br>
-        A little luxury in every ritual.
-    </p>
+    .eyebrow {
+        color: #C5A66A;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 5px;
+        margin-bottom: 22px;
+    }
 
-    <p class="hero-footer">
-        FEEL GOOD. NATURALLY.
-    </p>
+    h1 {
+        color: #F7F4ED;
+        font-size: 58px;
+        font-weight: normal;
+        line-height: 1.2;
+        margin: 0 0 22px;
+    }
 
-</div>
-""", unsafe_allow_html=True)
+    .description {
+        color: #F7F4ED;
+        font-size: 19px;
+        font-style: italic;
+        line-height: 1.8;
+    }
 
+    .slogan {
+        color: #C5A66A;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 4px;
+        margin-top: 25px;
+    }
 
-# ==========================================
-# INTRODUCTION
-# ==========================================
+    @keyframes riseIn {
+        from {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-st.markdown(
-    '<div class="section-heading">A More Beautiful Daily Ritual</div>',
-    unsafe_allow_html=True
-)
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 36px;
+        }
+        .hero {
+            padding: 65px 15px;
+        }
+    }
+</style>
+</head>
 
-st.write(
-    "Explore our collection of beauty and skincare essentials, "
-    "thoughtfully selected to bring a little luxury into your everyday routine."
-)
+<body>
+    <div class="hero">
+        <div class="eyebrow">THE NATURAL BEAUTY COLLECTION</div>
 
-st.divider()
+        <h1>Discover the Beauty<br>of Nature</h1>
 
+        <div class="description">
+            Thoughtfully inspired skincare.<br>
+            A little luxury in every ritual.
+        </div>
 
-# ==========================================
-# PRODUCT COLLECTION
-# ==========================================
-
-st.markdown(
-    '<div class="section-heading">The Skincare Collection</div>',
-    unsafe_allow_html=True
-)
-
-st.write("Discover your new everyday favourites.")
-
-col1, col2, col3 = st.columns(3, gap="large")
-
-columns = [col1, col2, col3]
-
-for product, column in zip(products, columns):
-
-    with column:
-
-        st.markdown(
-            f'<div class="product-name">{product["name"]}</div>',
-            unsafe_allow_html=True
-        )
-
-        if os.path.exists(product["image"]):
-            st.image(
-                product["image"],
-                use_container_width=True
-            )
-        else:
-            st.warning(
-                f"Image not found: {product['image']}"
-            )
-
-        st.write(product["description"])
-
-        st.markdown(
-            f'<div class="product-price">£{product["price"]:.2f}</div>',
-            unsafe_allow_html=True
-        )
-
-        if st.button(
-            "ADD TO BASKET",
-            key=product["id"],
-            use_container_width=True
-        ):
-            st.session_state.basket[product["id"]] = (
-                st.session_state.basket.get(product["id"], 0) + 1
-            )
-            st.rerun()
-
-
-# ==========================================
-# SHOPPING BASKET
-# ==========================================
-
-st.divider()
-
-st.markdown(
-    '<div class="section-heading">Your Shopping Basket</div>',
-    unsafe_allow_html=True
-)
-
-total = 0
-
-if st.session_state.basket:
-
-    for product in products:
-
-        quantity = st.session_state.basket.get(
-            product["id"], 0
-        )
-
-        if quantity > 0:
-
-            item_total = product["price"] * quantity
-            total += item_total
-
-            st.write(
-                f"**{product['name']}** — "
-                f"Quantity: {quantity} — "
-                f"£{item_total:.2f}"
-            )
-
-    st.markdown("---")
-
-    st.subheader(f"Your total: £{total:.2f}")
-
-    if st.button("CLEAR BASKET"):
-        st.session_state.basket = {}
-        st.rerun()
-
-else:
-    st.write("Your basket is currently empty.")
-
-
-# ==========================================
-# FOOTER
-# ==========================================
-
-st.divider()
-
-st.markdown("""
-<div style="text-align:center; padding:35px 10px;">
-
-    <h2 style="font-family:Georgia,serif;">
-        EARTH & BLOOM
-    </h2>
-
-    <p style="color:#B49A65; letter-spacing:4px;">
-        FEEL GOOD. NATURALLY.
-    </p>
-
-    <p>
-        Beauty inspired by nature.
-    </p>
-
-    <p style="font-size:13px;">
-        © 2026 EARTH & BLOOM. All rights reserved.
-    </p>
-
-</div>
-""", unsafe_allow_html=True)
-
+        <div class="slogan">FEEL GOOD. NATURALLY.</div>
+    </div>
+</body>
+</html>
+""", height=420, scrolling=False)
 
