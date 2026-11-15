@@ -84,6 +84,14 @@ st.write(
 
 st.divider()
 
+st.markdown("""
+<div class="hero">
+    <h1>Discover the Beauty of Nature</h1>
+    <p>Thoughtfully inspired skincare. A little luxury in every ritual.</p>
+    <p>FEEL GOOD. NATURALLY.</p>
+</div>
+""", unsafe_allow_html=True)
+
 st.header("Welcome to our online store")
 
 st.write("Explore our beauty and wellness collection.")
