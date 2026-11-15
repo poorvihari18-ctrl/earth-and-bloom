@@ -1,10 +1,10 @@
 
 import streamlit as st
+import streamlit.components.v1 as components
 import os
 
 # ==========================================
-# EARTH & BLOOM
-# LUXURY BEAUTY AND WELLNESS STORE
+# EARTH & BLOOM - ONLINE BEAUTY STORE
 # ==========================================
 
 st.set_page_config(
@@ -19,35 +19,33 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-
-html {
-    scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 .stApp {
-    background-color: #F7F4ED;
+    background: #F7F4ED;
     color: #26372D;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .block-container {
     max-width: 1450px;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-bottom: 4rem;
 }
 
 h1, h2, h3 {
-    font-family: Georgia, serif !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
     color: #26372D !important;
 }
 
 p, label {
-    color: #45483F;
+    color: #55564E;
 }
 
 @keyframes riseIn {
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -55,33 +53,68 @@ p, label {
     }
 }
 
+.element-container {
+    animation: riseIn 0.65s ease both;
+}
+
+.brand-title {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 76px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #26372D;
+    margin-top: 15px;
+}
+
+.brand-slogan {
+    text-align: center;
+    color: #B49A65;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #26372D !important;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #B49A65 !important;
+}
+
 .hero {
     background: #26372D;
     color: #F7F4ED;
     text-align: center;
-    padding: 85px 25px;
-    margin: 35px 0 55px 0;
-    animation: riseIn 1s ease-out;
+    padding: 95px 25px;
+    margin: 45px 0;
+    animation: riseIn 1s ease both;
 }
 
 .hero-label {
     color: #C5A66A;
-    font-family: Arial, sans-serif;
     font-size: 12px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
 }
 
 .hero h1 {
     color: #F7F4ED !important;
-    font-family: Georgia, serif !important;
-    font-size: 58px !important;
-    font-weight: normal !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: clamp(38px, 5vw, 68px) !important;
+    font-weight: 400 !important;
     line-height: 1.2;
 }
 
 .hero-description {
     color: #F7F4ED;
-    font-family: Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 20px;
     font-style: italic;
     line-height: 1.8;
@@ -89,121 +122,144 @@ p, label {
 
 .hero-footer {
     color: #C5A66A;
-    font-family: Arial, sans-serif;
     font-size: 12px;
-    letter-spacing: 4px;
-    margin-top: 25px;
-}
-
-.brand-name {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: 48px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: #26372D;
-}
-
-.brand-slogan {
-    text-align: center;
-    color: #B49A65;
-    font-family: Georgia, serif;
-    font-size: 16px;
     letter-spacing: 5px;
-    margin-bottom: 25px;
-}
-
-.eb-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 17px 5px;
-    border-top: 1px solid #DED7CA;
-    border-bottom: 1px solid #DED7CA;
-}
-
-.eb-nav a {
-    color: #26372D !important;
-    text-decoration: none !important;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    margin: 0 8px;
-}
-
-.eb-nav a:hover {
-    color: #B49A65 !important;
-}
-
-.eb-icons {
-    font-size: 20px;
-    letter-spacing: 9px;
+    margin-top: 30px;
 }
 
 .section-label {
     color: #B49A65;
     font-size: 12px;
     letter-spacing: 4px;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 38px;
+    color: #26372D;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.icon-box {
+    text-align: center;
+    padding: 20px 5px;
+}
+
+.icon-box .icon {
+    font-size: 30px;
+}
+
+.icon-box p {
+    color: #26372D;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.product-card {
+    background: #FBF9F4;
+    border: 1px solid #DED8CC;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-placeholder {
+    background: #EAE5DA;
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    text-align: center;
 }
 
 .product-name {
-    font-family: Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 21px;
-    font-weight: bold;
+    font-weight: 600;
     color: #26372D;
+    min-height: 55px;
+    margin-top: 15px;
+}
+
+.product-description {
+    font-size: 13px;
+    min-height: 40px;
 }
 
 .product-price {
-    font-size: 18px;
-    color: #45483F;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    color: #26372D;
+    margin: 12px 0;
 }
 
 .stButton button {
-    background-color: #26372D;
-    color: white;
+    background: #26372D;
+    color: white !important;
     border: 1px solid #26372D;
     border-radius: 0;
-    padding: 12px 15px;
+    min-height: 43px;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .stButton button:hover {
-    background-color: #B49A65;
-    color: white;
+    background: #B49A65;
     border-color: #B49A65;
+    color: white !important;
 }
 
-.stTextInput input,
-.stSelectbox div[data-baseweb="select"] {
-    background-color: #FFFFFF;
+.philosophy {
+    background: #26372D;
+    color: #F7F4ED;
+    padding: 65px 25px;
+    text-align: center;
+    margin: 55px 0;
+}
+
+.philosophy h2 {
+    color: #F7F4ED !important;
+}
+
+.footer {
+    background: #26372D;
+    color: #F7F4ED;
+    padding: 40px 15px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer p {
+    color: #F7F4ED;
 }
 
 hr {
-    border-color: #DED7CA;
+    border-color: #DED8CC;
 }
 
-@media (max-width: 700px) {
-    .brand-name {
-        font-size: 30px;
-    }
-
-    .hero h1 {
-        font-size: 36px !important;
-    }
-
+@media (max-width: 600px) {
     .hero {
-        padding: 55px 15px;
+        padding: 60px 15px;
+    }
+    .brand-slogan {
+        letter-spacing: 3px;
     }
 }
-
 </style>
 """, unsafe_allow_html=True)
 
 
 # ==========================================
-# BASKET SETUP
+# BASKET
 # ==========================================
 
 if "basket" not in st.session_state:
@@ -211,8 +267,7 @@ if "basket" not in st.session_state:
 
 
 # ==========================================
-# PRODUCT COLLECTION
-# 16 PRODUCTS IN TOTAL
+# PRODUCT COLLECTIONS
 # ==========================================
 
 products = [
@@ -226,7 +281,7 @@ products = [
         "category": "Skincare",
         "image": "Screenshot 2026-11-14 141225.jpg",
         "icon": "🌿",
-        "description": "A gentle skincare essential."
+        "description": "A gentle everyday moisturising essential."
     },
     {
         "id": "toner",
@@ -235,7 +290,7 @@ products = [
         "category": "Skincare",
         "image": "Screenshot 2026-11-14 141325.jpg",
         "icon": "🌸",
-        "description": "A refreshing addition to your routine."
+        "description": "A refreshing addition to your skincare ritual."
     },
     {
         "id": "shea",
@@ -243,8 +298,8 @@ products = [
         "price": 10.99,
         "category": "Skincare",
         "image": "Screenshot 2026-11-14 141349.jpg",
-        "icon": "🤍",
-        "description": "A rich everyday moisturiser."
+        "icon": "🌼",
+        "description": "A rich moisturiser for daily care."
     },
     {
         "id": "cleanser",
@@ -253,7 +308,7 @@ products = [
         "category": "Skincare",
         "image": None,
         "icon": "🫧",
-        "description": "A simple first step in your skincare ritual."
+        "description": "A simple first step in your skincare routine."
     },
     {
         "id": "serum",
@@ -262,58 +317,58 @@ products = [
         "category": "Skincare",
         "image": None,
         "icon": "✨",
-        "description": "A lightweight serum for your daily routine."
+        "description": "A bright addition to your daily routine."
     },
 
     # BODY CARE - 5 PRODUCTS
 
     {
-        "id": "bodylotion",
-        "name": "Daily Body Lotion",
-        "price": 12.99,
-        "category": "Body Care",
-        "image": None,
-        "icon": "🤍",
-        "description": "A comforting daily body-care essential."
-    },
-    {
-        "id": "handcream",
-        "name": "Softening Hand Cream",
-        "price": 7.99,
-        "category": "Body Care",
-        "image": None,
-        "icon": "🌷",
-        "description": "A little care for hardworking hands."
-    },
-    {
         "id": "bodywash",
-        "name": "Gentle Body Wash",
-        "price": 8.99,
+        "name": "Botanical Body Wash",
+        "price": 9.99,
         "category": "Body Care",
         "image": None,
-        "icon": "🛁",
-        "description": "A refreshing everyday wash."
-    },
-    {
-        "id": "bodyoil",
-        "name": "Silky Body Oil",
-        "price": 15.99,
-        "category": "Body Care",
-        "image": None,
-        "icon": "💧",
-        "description": "A luxurious finishing touch."
+        "icon": "🌿",
+        "description": "A refreshing everyday body wash."
     },
     {
         "id": "bodyscrub",
-        "name": "Botanical Body Scrub",
+        "name": "Rose Body Scrub",
+        "price": 12.99,
+        "category": "Body Care",
+        "image": None,
+        "icon": "🌹",
+        "description": "A lovely addition to your body-care ritual."
+    },
+    {
+        "id": "bodylotion",
+        "name": "Nourishing Body Lotion",
         "price": 13.99,
         "category": "Body Care",
         "image": None,
         "icon": "🌼",
-        "description": "A lovely addition to your bath ritual."
+        "description": "A daily moisturising essential."
+    },
+    {
+        "id": "handcream",
+        "name": "Soft Hands Hand Cream",
+        "price": 6.99,
+        "category": "Body Care",
+        "image": None,
+        "icon": "🤍",
+        "description": "A little everyday care for your hands."
+    },
+    {
+        "id": "bodybutter",
+        "name": "Cocoa Body Butter",
+        "price": 14.99,
+        "category": "Body Care",
+        "image": None,
+        "icon": "🥥",
+        "description": "A rich body-care treat."
     },
 
-    # HAIR CARE - 3 PRODUCTS
+    # HAIR CARE - 5 PRODUCTS
 
     {
         "id": "shampoo",
@@ -321,331 +376,395 @@ products = [
         "price": 10.99,
         "category": "Hair Care",
         "image": None,
-        "icon": "🧴",
+        "icon": "🌿",
         "description": "An everyday hair-care essential."
     },
     {
         "id": "conditioner",
-        "name": "Botanical Conditioner",
-        "price": 10.99,
+        "name": "Nourishing Conditioner",
+        "price": 11.99,
         "category": "Hair Care",
         "image": None,
-        "icon": "🌿",
-        "description": "A soft finishing step for your hair."
+        "icon": "🌸",
+        "description": "A soft finishing step after shampoo."
     },
     {
         "id": "hairmask",
-        "name": "Nourishing Hair Mask",
-        "price": 14.99,
+        "name": "Repair Hair Mask",
+        "price": 15.99,
         "category": "Hair Care",
         "image": None,
-        "icon": "🌱",
-        "description": "A special treat for your hair-care routine."
+        "icon": "🥑",
+        "description": "A little extra care for your hair."
+    },
+    {
+        "id": "hairserum",
+        "name": "Silky Hair Serum",
+        "price": 12.99,
+        "category": "Hair Care",
+        "image": None,
+        "icon": "💧",
+        "description": "A lightweight finishing touch for your hair."
+    },
+    {
+        "id": "hairoil",
+        "name": "Botanical Hair Oil",
+        "price": 13.99,
+        "category": "Hair Care",
+        "image": None,
+        "icon": "🌿",
+        "description": "An addition to your hair-care ritual."
     },
 
     # WELLNESS - 3 PRODUCTS
 
     {
-        "id": "lipbalm",
-        "name": "Nourishing Lip Balm",
-        "price": 5.99,
+        "id": "teas",
+        "name": "Botanical Herbal Tea",
+        "price": 7.99,
         "category": "Wellness",
         "image": None,
-        "icon": "🌸",
-        "description": "A handy everyday beauty essential."
+        "icon": "🍵",
+        "description": "A comforting tea-time moment."
     },
     {
-        "id": "sunscreen",
-        "name": "Daily Face Sunscreen",
-        "price": 14.99,
+        "id": "candle",
+        "name": "Natural Scented Candle",
+        "price": 15.99,
         "category": "Wellness",
         "image": None,
-        "icon": "☀️",
-        "description": "A daily sun-care essential."
+        "icon": "🕯️",
+        "description": "Create a peaceful atmosphere at home."
     },
     {
-        "id": "facemask",
-        "name": "Nourishing Face Mask",
+        "id": "bathsalts",
+        "name": "Relaxing Bath Salts",
         "price": 9.99,
         "category": "Wellness",
         "image": None,
-        "icon": "🧖",
-        "description": "A relaxing addition to your self-care routine."
+        "icon": "🛁",
+        "description": "A little treat for your bath ritual."
     }
-
 ]
 
 
 # ==========================================
-# HEADER AND BRAND
+# WEBSITE HEADER
 # ==========================================
 
-st.markdown("""
-<div class="brand-name">🌿 EARTH & BLOOM</div>
-<div class="brand-slogan">FEEL GOOD. NATURALLY.</div>
-""", unsafe_allow_html=True)
+st.markdown(
+    '<div class="brand-title">🌿 EARTH & BLOOM</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<div class="brand-slogan">FEEL GOOD. NATURALLY.</div>',
+    unsafe_allow_html=True
+)
+
+# Small navigation icons
+
+nav1, nav2, nav3, nav4, nav5, nav6 = st.columns(6)
+
+with nav1:
+    st.markdown('<div class="icon-box"><div class="icon">🌿</div><p><a class="nav-link" href="#skincare">SHOP</a></p></div>', unsafe_allow_html=True)
+
+with nav2:
+    st.markdown('<div class="icon-box"><div class="icon">🫧</div><p><a class="nav-link" href="#body-care">RITUALS</a></p></div>', unsafe_allow_html=True)
+
+with nav3:
+    st.markdown('<div class="icon-box"><div class="icon">🌸</div><p><a class="nav-link" href="#ingredients">INGREDIENTS</a></p></div>', unsafe_allow_html=True)
+
+with nav4:
+    st.markdown('<div class="icon-box"><div class="icon">🤍</div><p><a class="nav-link" href="#about">ABOUT</a></p></div>', unsafe_allow_html=True)
+
+with nav5:
+    st.markdown('<div class="icon-box"><div class="icon">📖</div><p><a class="nav-link" href="#journal">JOURNAL</a></p></div>', unsafe_allow_html=True)
+
+with nav6:
+    st.markdown('<div class="icon-box"><div class="icon">✉️</div><p><a class="nav-link" href="#contact">CONTACT</a></p></div>', unsafe_allow_html=True)
+
+st.divider()
+
+
+# ==========================================
+# BASKET COUNT
+# ==========================================
 
 basket_count = sum(st.session_state.basket.values())
 
-st.markdown(f"""
-<div class="eb-nav">
-    <div>
-        <a href="#shop">SHOP</a>
-        <a href="#rituals">RITUALS</a>
-        <a href="#ingredients">INGREDIENTS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#journal">JOURNAL</a>
-        <a href="#contact">CONTACT</a>
-    </div>
-    <div class="eb-icons">
-        <a href="#shop" title="Search">⌕</a>
-        <a href="#account" title="Account">♙</a>
-        <a href="#basket" title="Basket">♧ {basket_count}</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(
+    f"<p style='text-align:center; font-size:17px;'>"
+    f"♡ YOUR BASKET: {basket_count} ITEM(S)</p>",
+    unsafe_allow_html=True
+)
 
 
 # ==========================================
-# HERO / COVER PAGE
+# HERO BANNER
 # ==========================================
 
-st.markdown("""
+components.html("""
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #F7F4ED; }
+
+.hero {
+    background: #26372D;
+    color: #F7F4ED;
+    text-align: center;
+    padding: 85px 20px;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: riseIn 1s ease-out;
+}
+
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+    color: #C5A66A;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: #F7F4ED;
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0 0 22px;
+}
+
+.description {
+    color: #F7F4ED;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.slogan {
+    color: #C5A66A;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+</style>
+</head>
+<body>
 <div class="hero">
-
-    <div class="hero-label">
-        THE NATURAL BEAUTY COLLECTION
-    </div>
-
-    <h1>
-        Discover the Beauty<br>of Nature
-    </h1>
-
-    <div class="hero-description">
+    <div class="eyebrow">THE NATURAL BEAUTY COLLECTION</div>
+    <h1>Discover the Beauty<br>of Nature</h1>
+    <div class="description">
         Thoughtfully inspired skincare.<br>
         A little luxury in every ritual.
     </div>
-
-    <div class="hero-footer">
-        FEEL GOOD. NATURALLY.
-    </div>
-
+    <div class="slogan">FEEL GOOD. NATURALLY.</div>
 </div>
-""", unsafe_allow_html=True)
+</body>
+</html>
+""", height=420, scrolling=False)
 
 
 # ==========================================
-# SMALL ICONS / STORE VALUES
+# PRODUCT DISPLAY FUNCTION
 # ==========================================
 
-icon1, icon2, icon3, icon4 = st.columns(4)
+def show_collection(category, anchor, label, title, description):
 
-with icon1:
-    st.markdown("<h2 style='text-align:center;'>🌿</h2>"
-                "<p style='text-align:center;'>BOTANICAL BEAUTY</p>",
-                unsafe_allow_html=True)
+    st.markdown(
+        f'<div id="{anchor}"></div>',
+        unsafe_allow_html=True
+    )
 
-with icon2:
-    st.markdown("<h2 style='text-align:center;'>💧</h2>"
-                "<p style='text-align:center;'>DAILY HYDRATION</p>",
-                unsafe_allow_html=True)
+    st.markdown(
+        f'<p class="section-label">{label}</p>'
+        f'<h2 class="section-title">{title}</h2>'
+        f'<p class="section-description">{description}</p>',
+        unsafe_allow_html=True
+    )
 
-with icon3:
-    st.markdown("<h2 style='text-align:center;'>🌸</h2>"
-                "<p style='text-align:center;'>GENTLE CARE</p>",
-                unsafe_allow_html=True)
+    collection = [
+        product for product in products
+        if product["category"] == category
+    ]
 
-with icon4:
-    st.markdown("<h2 style='text-align:center;'>✨</h2>"
-                "<p style='text-align:center;'>BEAUTY RITUALS</p>",
-                unsafe_allow_html=True)
+    columns = st.columns(3)
 
+    for index, product in enumerate(collection):
+
+        with columns[index % 3]:
+
+            with st.container(border=True):
+
+                image_path = product["image"]
+
+                if image_path and os.path.exists(image_path):
+                    st.image(image_path, use_container_width=True)
+                else:
+                    st.markdown(
+                        f'<div class="product-placeholder">'
+                        f'{product["icon"]}</div>',
+                        unsafe_allow_html=True
+                    )
+
+                st.markdown(
+                    f'<div class="product-name">{product["name"]}</div>',
+                    unsafe_allow_html=True
+                )
+
+                st.markdown(
+                    f'<div class="product-description">'
+                    f'{product["description"]}</div>',
+                    unsafe_allow_html=True
+                )
+
+                st.markdown(
+                    f'<div class="product-price">£{product["price"]:.2f}</div>',
+                    unsafe_allow_html=True
+                )
+
+                if st.button(
+                    "ADD TO BASKET",
+                    key="add_" + product["id"],
+                    use_container_width=True
+                ):
+                    product_id = product["id"]
+                    st.session_state.basket[product_id] = (
+                        st.session_state.basket.get(product_id, 0) + 1
+                    )
+                    st.rerun()
+
+
+# ==========================================
+# FOUR PRODUCT COLLECTIONS
+# ==========================================
+
+show_collection(
+    "Skincare",
+    "skincare",
+    "THE SKINCARE EDIT",
+    "Everyday Skincare",
+    "Thoughtful essentials for your daily beauty routine."
+)
 
 st.divider()
 
-
-# ==========================================
-# INTRODUCTION
-# ==========================================
-
-st.markdown("""
-<div style="text-align:center; padding:30px 10px;">
-
-    <p class="section-label">
-        A LITTLE MOMENT FOR YOURSELF
-    </p>
-
-    <h2 style="font-size:38px;">
-        Beauty in Every Ritual
-    </h2>
-
-    <p>
-        Thoughtful essentials for your everyday beauty routine.
-    </p>
-
-</div>
-""", unsafe_allow_html=True)
-
-
-# ==========================================
-# SHOP AND PRODUCT SEARCH
-# ==========================================
-
-st.markdown('<div id="shop"></div>', unsafe_allow_html=True)
+show_collection(
+    "Body Care",
+    "body-care",
+    "A LITTLE BODY CARE",
+    "Body Care Collection",
+    "Make everyday care feel like a special ritual."
+)
 
 st.divider()
 
-st.markdown("""
-<p class="section-label">THE EARTH & BLOOM EDIT</p>
-<h2 style="font-size:38px;">Explore Our Collection</h2>
-<p>Find the little essentials that make a difference.</p>
-""", unsafe_allow_html=True)
-
-search_text = st.text_input(
-    "⌕ Search our collection",
-    placeholder="Search for a product..."
+show_collection(
+    "Hair Care",
+    "hair-care",
+    "NATURE FOR YOUR HAIR",
+    "Hair Care Collection",
+    "Discover little essentials for your hair-care routine."
 )
 
-selected_category = st.selectbox(
-    "Choose a collection",
-    ["All Products", "Skincare", "Body Care", "Hair Care", "Wellness"]
+st.divider()
+
+show_collection(
+    "Wellness",
+    "wellness",
+    "SLOW DOWN AND UNWIND",
+    "Wellness Collection",
+    "Thoughtful little moments for your everyday wellbeing."
 )
-
-filtered_products = []
-
-for product in products:
-
-    matches_search = (
-        search_text.lower() in product["name"].lower()
-    )
-
-    matches_category = (
-        selected_category == "All Products"
-        or product["category"] == selected_category
-    )
-
-    if matches_search and matches_category:
-        filtered_products.append(product)
 
 
 # ==========================================
-# PRODUCT DISPLAY
+# BASKET DETAILS
 # ==========================================
 
-if not filtered_products:
+st.divider()
 
-    st.info("No products found. Try another search.")
+st.markdown(
+    '<p class="section-label">YOUR SELECTED FAVOURITES</p>'
+    '<h2 class="section-title">Your Shopping Basket</h2>',
+    unsafe_allow_html=True
+)
+
+if st.session_state.basket:
+
+    total = 0
+
+    for product_id, quantity in list(st.session_state.basket.items()):
+
+        product = next(
+            item for item in products
+            if item["id"] == product_id
+        )
+
+        item_total = product["price"] * quantity
+        total += item_total
+
+        left, middle, right = st.columns([4, 1, 1])
+
+        with left:
+            st.write(product["name"])
+
+        with middle:
+            st.write(f"£{item_total:.2f}  × {quantity}")
+
+        with right:
+            if st.button("REMOVE", key="remove_" + product_id):
+                del st.session_state.basket[product_id]
+                st.rerun()
+
+    st.divider()
+
+    st.markdown(
+        f"<h3 style='text-align:right;'>TOTAL: £{total:.2f}</h3>",
+        unsafe_allow_html=True
+    )
+
+    if st.button("CLEAR BASKET"):
+        st.session_state.basket = {}
+        st.rerun()
 
 else:
-
-    for start in range(0, len(filtered_products), 4):
-
-        product_row = filtered_products[start:start + 4]
-        cols = st.columns(4, gap="large")
-
-        for product, col in zip(product_row, cols):
-
-            with col:
-
-                with st.container(border=True):
-
-                    image_path = product["image"]
-
-                    if image_path and os.path.isfile(image_path):
-
-                        st.image(
-                            image_path,
-                            use_container_width=True
-                        )
-
-                    else:
-
-                        st.markdown(
-                            f"""
-                            <div style="
-                                background:#EAE5DA;
-                                height:180px;
-                                display:flex;
-                                justify-content:center;
-                                align-items:center;
-                                font-size:55px;
-                            ">
-                                {product["icon"]}
-                            </div>
-                            """,
-                            unsafe_allow_html=True
-                        )
-
-                    st.markdown(
-                        f"<div class='product-name'>{product['name']}</div>",
-                        unsafe_allow_html=True
-                    )
-
-                    st.caption(product["description"])
-
-                    st.markdown(
-                        f"<div class='product-price'>£{product['price']:.2f}</div>",
-                        unsafe_allow_html=True
-                    )
-
-                    if st.button(
-                        "ADD TO BASKET",
-                        key="add_" + product["id"],
-                        use_container_width=True
-                    ):
-
-                        st.session_state.basket[product["id"]] = (
-                            st.session_state.basket.get(
-                                product["id"], 0
-                            ) + 1
-                        )
-
-                        st.rerun()
+    st.info("Your basket is currently empty. Explore our collections!")
 
 
 # ==========================================
-# SHOP BY CATEGORY
+# ABOUT OUR BRAND
 # ==========================================
 
-st.markdown('<div id="rituals"></div>', unsafe_allow_html=True)
-
-st.divider()
+st.markdown('<div id="about"></div>', unsafe_allow_html=True)
 
 st.markdown("""
-<div style="text-align:center; padding:30px 10px;">
-
-    <p class="section-label">FIND YOUR FAVOURITES</p>
-
-    <h2 style="font-size:38px;">Shop by Category</h2>
-
+<div class="philosophy">
+    <p style="color:#C5A66A; letter-spacing:5px; font-size:12px;">
+        OUR PHILOSOPHY
+    </p>
+    <h2 style="font-size:38px;">Less, but More Meaningful</h2>
+    <p style="color:#F7F4ED; font-size:17px; line-height:1.8;">
+        Beauty is found in the little things.<br>
+        Make space for simple rituals and moments of care.
+    </p>
 </div>
 """, unsafe_allow_html=True)
-
-cat1, cat2, cat3, cat4 = st.columns(4)
-
-with cat1:
-    st.markdown("<h1 style='text-align:center;'>🌸</h1>",
-                unsafe_allow_html=True)
-    st.subheader("Skincare")
-    st.write("Cleansers, creams and serums.")
-
-with cat2:
-    st.markdown("<h1 style='text-align:center;'>🌿</h1>",
-                unsafe_allow_html=True)
-    st.subheader("Body Care")
-    st.write("Everyday body-care essentials.")
-
-with cat3:
-    st.markdown("<h1 style='text-align:center;'>✨</h1>",
-                unsafe_allow_html=True)
-    st.subheader("Hair Care")
-    st.write("Simple hair-care favourites.")
-
-with cat4:
-    st.markdown("<h1 style='text-align:center;'>☀️</h1>",
-                unsafe_allow_html=True)
-    st.subheader("Wellness")
-    st.write("Little moments of self-care.")
 
 
 # ==========================================
@@ -654,107 +773,27 @@ with cat4:
 
 st.markdown('<div id="ingredients"></div>', unsafe_allow_html=True)
 
-st.divider()
-
 st.markdown("""
-<div style="text-align:center; padding:40px 15px;">
-
-    <p class="section-label">INSPIRED BY NATURE</p>
-
-    <h2 style="font-size:38px;">A Closer Look at Ingredients</h2>
-
-    <p>
-        Discover the ingredients and details behind your
-        everyday beauty favourites.
-    </p>
-
-</div>
+<p class="section-label">INSPIRED BY NATURE</p>
+<h2 class="section-title">A Closer Look at Ingredients</h2>
+<p class="section-description">
+Discover the ingredients and details behind your everyday beauty favourites.
+</p>
 """, unsafe_allow_html=True)
 
-ing1, ing2, ing3 = st.columns(3)
+a, b, c = st.columns(3)
 
-with ing1:
-    st.markdown("## 🌿")
-    st.subheader("Aloe Vera")
-    st.write("A familiar botanical ingredient in skincare.")
+with a:
+    st.markdown("### 🌿 Botanical Inspiration")
+    st.write("Explore nature-inspired beauty essentials.")
 
-with ing2:
-    st.markdown("## 🌹")
-    st.subheader("Rose Water")
-    st.write("A refreshing ingredient used in beauty rituals.")
+with b:
+    st.markdown("### 🌹 Floral Touches")
+    st.write("Discover lovely floral-inspired rituals.")
 
-with ing3:
-    st.markdown("## 🥥")
-    st.subheader("Shea Butter")
-    st.write("A rich ingredient often used in moisturisers.")
-
-
-# ==========================================
-# OUR PHILOSOPHY
-# ==========================================
-
-st.markdown('<div id="about"></div>', unsafe_allow_html=True)
-
-st.divider()
-
-st.markdown("""
-<div style="
-    background:#26372D;
-    color:#F7F4ED;
-    text-align:center;
-    padding:65px 25px;
-    animation:riseIn 1s ease-out;
-">
-
-    <p style="color:#C5A66A; letter-spacing:4px;">
-        OUR PHILOSOPHY
-    </p>
-
-    <h2 style="color:#F7F4ED !important; font-size:36px;">
-        Less, but More Meaningful
-    </h2>
-
-    <p style="color:#F7F4ED; font-size:17px; line-height:1.8;">
-        Beauty is found in the little things.<br>
-        Make space for simple rituals and moments of care.
-    </p>
-
-</div>
-""", unsafe_allow_html=True)
-
-
-# ==========================================
-# WHY CHOOSE US
-# ==========================================
-
-st.divider()
-
-st.markdown("""
-<div style="text-align:center; padding:30px 10px;">
-
-    <p class="section-label">THE EARTH & BLOOM EXPERIENCE</p>
-
-    <h2 style="font-size:38px;">The Little Details Matter</h2>
-
-</div>
-""", unsafe_allow_html=True)
-
-benefit1, benefit2, benefit3 = st.columns(3)
-
-with benefit1:
-    st.markdown("## ♡")
-    st.subheader("Thoughtful Choices")
-    st.write("A considered collection of beauty essentials.")
-
-with benefit2:
-    st.markdown("## ✧")
-    st.subheader("Everyday Rituals")
-    st.write("Make a little time for your daily self-care.")
-
-with benefit3:
-    st.markdown("## 🌿")
-    st.subheader("Inspired by Nature")
-    st.write("A natural-inspired look and feel throughout our store.")
+with c:
+    st.markdown("### 🥥 Everyday Care")
+    st.write("Find thoughtful additions to your routine.")
 
 
 # ==========================================
@@ -763,105 +802,27 @@ with benefit3:
 
 st.markdown('<div id="journal"></div>', unsafe_allow_html=True)
 
-st.divider()
-
 st.markdown("""
-<div style="text-align:center; padding:35px 10px;">
-
-    <p class="section-label">NOTES FROM EARTH & BLOOM</p>
-
-    <h2 style="font-size:38px;">The Beauty Journal</h2>
-
-    <p>Little ideas for making time for yourself.</p>
-
-</div>
+<p class="section-label">NOTES FROM EARTH & BLOOM</p>
+<h2 class="section-title">The Beauty Journal</h2>
+<p class="section-description">
+Little ideas for making time for yourself.
+</p>
 """, unsafe_allow_html=True)
 
-journal1, journal2, journal3 = st.columns(3)
+j1, j2, j3 = st.columns(3)
 
-with journal1:
-    st.markdown("## 🌸")
-    st.subheader("Your Daily Skincare Ritual")
-    st.write("Discover the joy of a simple daily routine.")
+with j1:
+    st.markdown("### 🌸 Simple Skincare Rituals")
+    st.write("A little time for your everyday skincare routine.")
 
-with journal2:
-    st.markdown("## ☀️")
-    st.subheader("A Moment of Self-Care")
-    st.write("Make a little space for yourself every day.")
+with j2:
+    st.markdown("### 🌿 Finding Your Favourites")
+    st.write("Explore the products that suit your personal routine.")
 
-with journal3:
-    st.markdown("## 🌿")
-    st.subheader("Beauty Inspired by Nature")
-    st.write("Explore the beauty of botanical inspiration.")
-
-
-# ==========================================
-# SHOPPING BASKET
-# ==========================================
-
-st.markdown('<div id="basket"></div>', unsafe_allow_html=True)
-
-st.divider()
-
-st.markdown("""
-<h2 style="font-size:38px;">Your Shopping Basket</h2>
-""", unsafe_allow_html=True)
-
-total = 0
-item_count = 0
-
-for product in products:
-
-    quantity = st.session_state.basket.get(product["id"], 0)
-
-    if quantity > 0:
-
-        subtotal = quantity * product["price"]
-
-        total += subtotal
-        item_count += quantity
-
-        basket_col1, basket_col2, basket_col3 = st.columns([4, 1, 2])
-
-        with basket_col1:
-            st.write(product["name"])
-
-        with basket_col2:
-            st.write(f"× {quantity}")
-
-        with basket_col3:
-            st.write(f"£{subtotal:.2f}")
-
-if item_count == 0:
-
-    st.write("Your basket is currently empty.")
-
-st.divider()
-
-st.subheader(f"Basket total: £{total:.2f}")
-
-if item_count > 0:
-
-    if st.button("CLEAR BASKET"):
-
-        st.session_state.basket = {}
-        st.rerun()
-
-
-# ==========================================
-# ACCOUNT SECTION
-# ==========================================
-
-st.markdown('<div id="account"></div>', unsafe_allow_html=True)
-
-st.divider()
-
-st.subheader("Your EARTH & BLOOM Account")
-
-st.write(
-    "Account registration and sign-in will be added "
-    "as a future feature."
-)
+with j3:
+    st.markdown("### ✨ Everyday Moments")
+    st.write("Make space for small moments of self-care.")
 
 
 # ==========================================
@@ -870,44 +831,40 @@ st.write(
 
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 
-st.divider()
-
 st.markdown("""
-<div style="text-align:center; padding:35px 10px;">
-
-    <p class="section-label">WE WOULD LOVE TO HEAR FROM YOU</p>
-
-    <h2 style="font-size:38px;">Contact EARTH & BLOOM</h2>
-
-    <p>
-        Thank you for visiting our little beauty world.
-    </p>
-
-</div>
+<p class="section-label">WE WOULD LOVE TO HEAR FROM YOU</p>
+<h2 class="section-title">Contact EARTH & BLOOM</h2>
+<p class="section-description">
+Thank you for visiting our little beauty world.
+</p>
 """, unsafe_allow_html=True)
+
+with st.form("contact_form"):
+    customer_name = st.text_input("Your name")
+    customer_email = st.text_input("Your email")
+    customer_message = st.text_area("Your message")
+
+    submitted = st.form_submit_button("SEND MESSAGE")
+
+    if submitted:
+        if customer_name and customer_email and customer_message:
+            st.success("Thank you! Your message has been entered.")
+        else:
+            st.warning("Please complete all three fields.")
 
 
 # ==========================================
 # FOOTER
 # ==========================================
 
-st.markdown("---")
-
 st.markdown("""
-<div style="text-align:center; padding:35px 10px;">
-
-    <h2>🌿 EARTH & BLOOM</h2>
-
-    <p style="color:#B49A65; letter-spacing:4px;">
+<div class="footer">
+    <h2 style="color:#F7F4ED;">🌿 EARTH & BLOOM</h2>
+    <p style="color:#C5A66A; letter-spacing:4px;">
         FEEL GOOD. NATURALLY.
     </p>
-
     <p>Beauty inspired by nature.</p>
-
-    <p style="font-size:12px;">
-        © 2026 EARTH & BLOOM
-    </p>
-
+    <p style="font-size:12px;">© 2026 EARTH & BLOOM</p>
 </div>
 """, unsafe_allow_html=True)
 
