@@ -13,6 +13,27 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+
+    .hero {
+        background-color: #26372D;
+        color: #F7F4ED;
+        padding: 90px 55px;
+        text-align: center;
+        border-radius: 3px;
+        margin: 35px 0;
+    }
+
+    .hero h1 {
+        color: #F7F4ED !important;
+        font-family: Georgia, serif !important;
+        font-size: 48px;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        color: #E8E0D0;
+        font-size: 18px;
+    }
     .stApp {
         background-color: #F7F4ED;
         color: #26372D;
