@@ -9,6 +9,49 @@ st.set_page_config(
     layout="wide"
 )
 
+# LUXURY WEBSITE DESIGN
+
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #F7F4ED;
+        color: #26372D;
+    }
+
+    h1, h2, h3 {
+        font-family: Georgia, serif !important;
+        color: #26372D !important;
+    }
+
+    p, label, span {
+        color: #45483F;
+    }
+
+    [data-testid="stHeader"] {
+        background-color: #F7F4ED;
+    }
+
+    .stButton button {
+        background-color: #26372D;
+        color: white;
+        border: 1px solid #26372D;
+        border-radius: 2px;
+        padding: 10px 24px;
+        font-family: Georgia, serif;
+    }
+
+    .stButton button:hover {
+        background-color: #B49A65;
+        color: white;
+        border-color: #B49A65;
+    }
+
+    hr {
+        border-color: #D8CFBE;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 st.title("🌿 EARTH & BLOOM")
 
 st.subheader("Feel good. Naturally.")
