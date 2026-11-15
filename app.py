@@ -13,64 +13,59 @@ st.set_page_config(
 
 st.markdown("""
 
-<style>
-    .hero {
-        background-color: #26372D;
-        color: #F7F4ED;
-        padding: 90px 55px;
-        text-align: center;
-        border-radius: 3px;
-        margin: 35px 0;
-    }
 
-    .hero h1 {
+st.markdown("""
+<div class="hero" style="
+    background: #26372D;
+    padding: 100px 35px;
+    text-align: center;
+    margin: 35px 0;
+">
+    <p style="
+        color: #C5A66A !important;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    ">
+        THE NATURAL BEAUTY COLLECTION
+    </p>
+
+    <h1 style="
         color: #F7F4ED !important;
         font-family: Georgia, serif !important;
-        font-size: 48px !important;
+        font-size: 58px !important;
+        font-weight: normal !important;
         letter-spacing: 1px;
-    }
+        line-height: 1.15;
+        margin-bottom: 25px;
+    ">
+        Discover the Beauty<br>of Nature
+    </h1>
 
-    .hero p {
+    <p style="
         color: #F7F4ED !important;
-        font-size: 18px;
-    }
-
-    .stApp {
-        background-color: #F7F4ED;
-        color: #26372D;
-    }
-
-    h1, h2, h3 {
-        font-family: Georgia, serif !important;
-        color: #26372D !important;
-    }
-
-    p, label, span {
-        color: #45483F;
-    }
-
-    [data-testid="stHeader"] {
-        background-color: #F7F4ED;
-    }
-
-    .stButton button {
-        background-color: #26372D;
-        color: #F7F4ED;
-        border: 1px solid #26372D;
-        border-radius: 2px;
-        padding: 10px 24px;
         font-family: Georgia, serif;
-    }
+        font-size: 20px;
+        font-style: italic;
+        margin-bottom: 35px;
+    ">
+        Thoughtfully inspired skincare.<br>
+        A little luxury in every ritual.
+    </p>
 
-    .stButton button:hover {
-        background-color: #B49A65;
-        color: white;
-        border-color: #B49A65;
-    }
+    <p style="
+        color: #C5A66A !important;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        letter-spacing: 4px;
+    ">
+        FEEL GOOD. NATURALLY.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
-    hr {
-        border-color: #D8CFBE;
-    }
 
 </style>
 """, unsafe_allow_html=True)
