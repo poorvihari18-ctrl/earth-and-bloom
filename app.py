@@ -36,19 +36,19 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.subheader("Aloe Vera Face Cream")
-    st.image("https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b", use_container_width=True)
+    st.image("Screenshot 2026-11-14 141225.jpg", use_container_width=True)
     st.write("£12.99")
     st.button("Add to Basket", key="cream")
    
 with col2:
     st.subheader("Rose Water Toner")
-    st.image("https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19", use_container_width=True)
+    st.image("Screenshot 2026-11-14 141325.jpg", use_container_width=True)
     st.write("£8.99")
     st.button("Add to Basket", key="toner")
 
 with col3:
     st.subheader("Shea Butter Moisturiser")
-    st.image("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108", use_container_width=True)
+    st.image("Screenshot 2026-11-14 141349.jpg", use_container_width=True)
     st.write("£10.99")
     st.button("Add to Basket", key="shea")
 
