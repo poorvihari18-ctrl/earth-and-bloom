@@ -184,7 +184,35 @@ st.markdown("""
 <div class="brand-title">🌿 EARTH & BLOOM</div>
 <div class="brand-slogan">FEEL GOOD. NATURALLY.</div>
 """, unsafe_allow_html=True)
+# SMALL LUXURY ICONS
 
+st.markdown("""
+<div style="
+    display:flex;
+    justify-content:center;
+    gap:55px;
+    padding:25px 10px;
+    text-align:center;
+    flex-wrap:wrap;
+">
+    <div>
+        <div style="font-size:25px;">🌿</div>
+        <small>BOTANICAL BEAUTY</small>
+    </div>
+    <div>
+        <div style="font-size:25px;">💧</div>
+        <small>DAILY HYDRATION</small>
+    </div>
+    <div>
+        <div style="font-size:25px;">🌸</div>
+        <small>GENTLE CARE</small>
+    </div>
+    <div>
+        <div style="font-size:25px;">✨</div>
+        <small>BEAUTY RITUALS</small>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 basket_count = sum(st.session_state.basket.values())
 
 st.markdown(
