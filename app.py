@@ -23,11 +23,14 @@ st.markdown("""
         margin: 35px 0;
     }
 
-    .hero h1 {
-        color: #F7F4ED !important;
-        font-family: Georgia, serif !important;
-        font-size: 48px;
-        letter-spacing: 1px;
+    
+.stApp .hero h1 {
+    color: #F7F4ED !important;
+    font-family: Georgia, serif !important;
+    font-size: 48px !important;
+    letter-spacing: 1px;
+}
+
     }
 
     .hero p {
