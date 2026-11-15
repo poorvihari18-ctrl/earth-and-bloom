@@ -12,8 +12,8 @@ st.set_page_config(
 # LUXURY WEBSITE DESIGN
 
 st.markdown("""
-<style>
 
+<style>
     .hero {
         background-color: #26372D;
         color: #F7F4ED;
@@ -23,20 +23,18 @@ st.markdown("""
         margin: 35px 0;
     }
 
-    
-.stApp .hero h1 {
-    color: #F7F4ED !important;
-    font-family: Georgia, serif !important;
-    font-size: 48px !important;
-    letter-spacing: 1px;
-}
-
+    .hero h1 {
+        color: #F7F4ED !important;
+        font-family: Georgia, serif !important;
+        font-size: 48px !important;
+        letter-spacing: 1px;
     }
 
     .hero p {
-        color: #E8E0D0;
+        color: #F7F4ED !important;
         font-size: 18px;
     }
+
     .stApp {
         background-color: #F7F4ED;
         color: #26372D;
@@ -57,7 +55,7 @@ st.markdown("""
 
     .stButton button {
         background-color: #26372D;
-        color: white;
+        color: #F7F4ED;
         border: 1px solid #26372D;
         border-radius: 2px;
         padding: 10px 24px;
@@ -73,6 +71,7 @@ st.markdown("""
     hr {
         border-color: #D8CFBE;
     }
+
 </style>
 """, unsafe_allow_html=True)
 
