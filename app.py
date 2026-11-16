@@ -956,6 +956,7 @@ else:
     st.info("Your basket is currently empty. Explore our collections!")
 
 
+
 # ==========================================
 # ABOUT OUR BRAND
 # ==========================================
@@ -969,22 +970,49 @@ components.html("""
 <div style="
     background:#26372D;
     color:#F7F4ED;
-    padding:65px 25px;
+    width:100%;
+    min-height:320px;
+    padding:55px 25px;
+    margin:0;
+    box-sizing:border-box;
     text-align:center;
-    margin:55px 0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 ">
-    <p style="color:#C5A66A; letter-spacing:5px; font-size:12px;">
+
+    <p style="
+        color:#C5A66A;
+        letter-spacing:5px;
+        font-size:12px;
+        margin:0 0 25px 0;
+    ">
         OUR PHILOSOPHY
     </p>
-    <h2 style="color:#F7F4ED; font-family:Georgia,serif; font-size:38px;">
+
+    <h2 style="
+        color:#F7F4ED;
+        font-family:Georgia,serif;
+        font-size:38px;
+        margin:0 0 25px 0;
+    ">
         Less, but More Meaningful
     </h2>
-    <p style="color:#F7F4ED; font-size:17px; line-height:1.8;">
+
+    <p style="
+        color:#F7F4ED;
+        font-size:17px;
+        line-height:1.8;
+        margin:0;
+    ">
         Beauty is found in the little things.<br>
         Make space for simple rituals and moments of care.
     </p>
+
 </div>
-""", height=300, scrolling=False)
+""", height=380, scrolling=False)
+
 
 # ==========================================
 # INGREDIENTS SECTION
@@ -1099,6 +1127,7 @@ with st.form("contact_form"):
 
 
 
+
 # ==========================================
 # FOOTER
 # ==========================================
@@ -1107,19 +1136,50 @@ components.html("""
 <div style="
     background:#26372D;
     color:#F7F4ED;
-    padding:40px 15px;
+    width:100%;
+    min-height:260px;
+    padding:40px 20px;
+    box-sizing:border-box;
     text-align:center;
-    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 ">
-    <h2 style="color:#F7F4ED; font-family:Georgia,serif;">
+
+    <h2 style="
+        color:#F7F4ED;
+        font-family:Georgia,serif;
+        font-size:32px;
+        margin:0 0 15px 0;
+    ">
         🌿 EARTH & BLOOM
     </h2>
-    <p style="color:#C5A66A; letter-spacing:4px;">
+
+    <p style="
+        color:#C5A66A;
+        letter-spacing:4px;
+        font-size:13px;
+        margin:0 0 18px 0;
+    ">
         FEEL GOOD. NATURALLY.
     </p>
-    <p>Beauty inspired by nature.</p>
-    <p style="font-size:12px;">
+
+    <p style="
+        color:#F7F4ED;
+        font-size:15px;
+        margin:0 0 18px 0;
+    ">
+        Beauty inspired by nature.
+    </p>
+
+    <p style="
+        color:#F7F4ED;
+        font-size:12px;
+        margin:0;
+    ">
         © 2026 EARTH & BLOOM
     </p>
+
 </div>
-""", height=240, scrolling=False)
+""", height=280, scrolling=False)
