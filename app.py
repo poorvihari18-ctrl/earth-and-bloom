@@ -412,7 +412,7 @@ products = [
         "name": "Botanical Body Wash",
         "price": 9.99,
         "category": "Body Care",
-        "image":"Screenshot 2026-11-16 1234300.png",
+        "image":"Screenshot 2026-11-16 124300.png",
         "icon": "🌿",
         "description": "A refreshing everyday body wash."
     },
@@ -439,7 +439,7 @@ products = [
         "name": "Soft Hands Hand Cream",
         "price": 6.99,
         "category": "Body Care",
-        "image":"Screenshot 2026-11-16 124821.png",
+        "image":"Screenshot 2026-11-16 124712.png",
         "icon": "🤍",
         "description": "A little everyday care for your hands."
     },
@@ -448,7 +448,7 @@ products = [
         "name": "Cocoa Body Butter",
         "price": 14.99,
         "category": "Body Care",
-        "image": None,
+        "image": "Screenshot 2026-11-16 124821.png",
         "icon": "🥥",
         "description": "A rich body-care treat."
     },
