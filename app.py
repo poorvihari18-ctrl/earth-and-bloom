@@ -965,24 +965,27 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("""
-<div class="philosophy reveal-section">
-
+components.html("""
+<div style="
+    background:#26372D;
+    color:#F7F4ED;
+    padding:65px 25px;
+    text-align:center;
+    margin:55px 0;
+">
     <p style="color:#C5A66A; letter-spacing:5px; font-size:12px;">
         OUR PHILOSOPHY
     </p>
-
-    <h2 style="font-size:38px;">
+    <h2 style="color:#F7F4ED; font-family:Georgia,serif; font-size:38px;">
         Less, but More Meaningful
     </h2>
-
     <p style="color:#F7F4ED; font-size:17px; line-height:1.8;">
         Beauty is found in the little things.<br>
         Make space for simple rituals and moments of care.
     </p>
-
 </div>
-""", unsafe_allow_html=True)
+""", height=300, scrolling=False)
+
 
 
 # ==========================================
@@ -1097,30 +1100,28 @@ with st.form("contact_form"):
             st.warning("Please complete all three fields.")
 
 
+
 # ==========================================
 # FOOTER
 # ==========================================
 
-st.markdown("""
-<div class="footer">
-
-    <h2 style="color:#F7F4ED;">
+components.html("""
+<div style="
+    background:#26372D;
+    color:#F7F4ED;
+    padding:40px 15px;
+    text-align:center;
+    margin-top:30px;
+">
+    <h2 style="color:#F7F4ED; font-family:Georgia,serif;">
         🌿 EARTH & BLOOM
     </h2>
-
     <p style="color:#C5A66A; letter-spacing:4px;">
         FEEL GOOD. NATURALLY.
     </p>
-
     <p>Beauty inspired by nature.</p>
-
     <p style="font-size:12px;">
         © 2026 EARTH & BLOOM
     </p>
-
 </div>
-""", unsafe_allow_html=True)
-
-
-
-
+""", height=240, scrolling=False)
