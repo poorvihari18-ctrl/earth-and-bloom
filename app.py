@@ -1,7 +1,7 @@
 
 import streamlit as st
 import os
-
+import streamlit.components.v1 as components
 # ==========================================
 # EARTH & BLOOM - LUXURY BEAUTY STORE
 # ==========================================
