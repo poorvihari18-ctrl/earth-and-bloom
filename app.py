@@ -306,7 +306,7 @@ products = [
         "name": "Gentle Facial Cleanser",
         "price": 11.99,
         "category": "Skincare",
-        "image": None,
+        "image": "gentle_facial_cleanser.png",
         "icon": "🫧",
         "description": "A simple first step in your skincare routine."
     },
@@ -315,7 +315,7 @@ products = [
         "name": "Vitamin C Face Serum",
         "price": 16.99,
         "category": "Skincare",
-        "image": None,
+       "image": "vitamin_c_face_serum.png",
         "icon": "✨",
         "description": "A bright addition to your daily routine."
     },
