@@ -1,10 +1,9 @@
 
 import streamlit as st
-import streamlit.components.v1 as components
 import os
 
 # ==========================================
-# EARTH & BLOOM - ONLINE BEAUTY STORE
+# EARTH & BLOOM - LUXURY BEAUTY STORE
 # ==========================================
 
 st.set_page_config(
@@ -14,11 +13,12 @@ st.set_page_config(
 )
 
 # ==========================================
-# WEBSITE DESIGN
+# WEBSITE DESIGN AND ANIMATIONS
 # ==========================================
 
 st.markdown("""
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 .stApp {
@@ -42,6 +42,14 @@ p, label {
     color: #55564E;
 }
 
+/* Smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Upward entrance animation */
+
 @keyframes riseIn {
     from {
         opacity: 0;
@@ -53,15 +61,13 @@ p, label {
     }
 }
 
-.element-container {
-    animation: riseIn 0.65s ease both;
-}
+/* Brand */
 
 .brand-title {
     text-align: center;
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(36px, 6vw, 76px);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 3px;
     color: #26372D;
     margin-top: 15px;
@@ -71,22 +77,51 @@ p, label {
     text-align: center;
     color: #B49A65;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 17px;
-    letter-spacing: 6px;
+    font-size: 16px;
+    letter-spacing: 5px;
     margin-bottom: 25px;
 }
 
-.nav-link {
-    text-decoration: none;
-    color: #26372D !important;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 600;
+/* Navigation */
+
+.eb-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 38px;
+    padding: 22px 10px;
+    margin: 20px 0;
+    border-top: 1px solid #DED8CC;
+    border-bottom: 1px solid #DED8CC;
 }
 
-.nav-link:hover {
-    color: #B49A65 !important;
+.eb-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+    color: #26372D !important;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
+
+.eb-nav a:hover {
+    color: #B49A65 !important;
+    transform: translateY(-5px);
+}
+
+.eb-nav svg {
+    width: 21px;
+    height: 21px;
+    stroke: #26372D;
+    fill: none;
+    stroke-width: 1.4;
+}
+
+/* Hero banner */
 
 .hero {
     background: #26372D;
@@ -127,6 +162,8 @@ p, label {
     margin-top: 30px;
 }
 
+/* Section headings */
+
 .section-label {
     color: #B49A65;
     font-size: 12px;
@@ -148,6 +185,8 @@ p, label {
     margin-bottom: 35px;
 }
 
+/* Small icons */
+
 .icon-box {
     text-align: center;
     padding: 20px 5px;
@@ -159,17 +198,11 @@ p, label {
 
 .icon-box p {
     color: #26372D;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
-.product-card {
-    background: #FBF9F4;
-    border: 1px solid #DED8CC;
-    padding: 15px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
+/* Product cards */
 
 .product-placeholder {
     background: #EAE5DA;
@@ -202,6 +235,27 @@ p, label {
     margin: 12px 0;
 }
 
+/* Product hover movement */
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(38, 55, 45, 0.10);
+}
+
+[data-testid="stImage"] img {
+    transition: transform 0.5s ease;
+}
+
+[data-testid="stImage"] img:hover {
+    transform: scale(1.03);
+}
+
+/* Buttons */
+
 .stButton button {
     background: #26372D;
     color: white !important;
@@ -216,7 +270,10 @@ p, label {
     background: #B49A65;
     border-color: #B49A65;
     color: white !important;
+    transform: translateY(-3px);
 }
+
+/* Philosophy banner */
 
 .philosophy {
     background: #26372D;
@@ -230,6 +287,8 @@ p, label {
     color: #F7F4ED !important;
 }
 
+/* Footer */
+
 .footer {
     background: #26372D;
     color: #F7F4ED;
@@ -242,80 +301,50 @@ p, label {
     color: #F7F4ED;
 }
 
-hr {
-    border-color: #DED8CC;
+/* Scroll reveal where supported */
+
+@supports (animation-timeline: view()) {
+    .reveal-section {
+        animation: riseIn 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
 }
+
+/* Mobile design */
 
 @media (max-width: 600px) {
     .hero {
         padding: 60px 15px;
     }
+
     .brand-slogan {
         letter-spacing: 3px;
     }
-}
-</style>
 
-/* =================================
-   EARTH & BLOOM ANIMATIONS
-================================= */
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Gentle upward entrance */
-@keyframes riseIn {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .eb-nav {
+        gap: 20px;
     }
 }
 
-/* Animate website sections */
-[data-testid="stVerticalBlock"] > div {
-    animation: riseIn 0.8s ease both;
-}
+/* Reduced motion accessibility */
 
-/* Product image hover movement */
-[data-testid="stImage"] img {
-    transition: transform 0.5s ease;
-}
-
-[data-testid="stImage"] img:hover {
-    transform: translateY(-7px) scale(1.02);
-}
-
-/* Buttons gently lift when hovered */
-.stButton button {
-    transition: all 0.3s ease;
-}
-
-.stButton button:hover {
-    transform: translateY(-3px);
-}
-
-/* Respect visitors who prefer less movement */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
         scroll-behavior: auto !important;
     }
 }
 
+</style>
 """, unsafe_allow_html=True)
 
 
 # ==========================================
-# BASKET
+# BASKET SETUP
 # ==========================================
 
 if "basket" not in st.session_state:
@@ -323,7 +352,7 @@ if "basket" not in st.session_state:
 
 
 # ==========================================
-# PRODUCT COLLECTIONS
+# PRODUCT COLLECTIONS - 17 PRODUCTS
 # ==========================================
 
 products = [
@@ -371,7 +400,7 @@ products = [
         "name": "Vitamin C Face Serum",
         "price": 16.99,
         "category": "Skincare",
-       "image": "vitamin_c_face_serum.png",
+        "image": "vitamin_c_face_serum.png",
         "icon": "✨",
         "description": "A bright addition to your daily routine."
     },
@@ -472,7 +501,7 @@ products = [
         "description": "An addition to your hair-care ritual."
     },
 
-    # WELLNESS - 3 PRODUCTS
+    # WELLNESS - 2 PRODUCTS
 
     {
         "id": "teas",
@@ -491,16 +520,8 @@ products = [
         "image": None,
         "icon": "🕯️",
         "description": "Create a peaceful atmosphere at home."
-    },
-    {
-        "id": "bathsalts",
-        "name": "Relaxing Bath Salts",
-        "price": 9.99,
-        "category": "Wellness",
-        "image": None,
-        "icon": "🛁",
-        "description": "A little treat for your bath ritual."
     }
+
 ]
 
 
@@ -520,50 +541,12 @@ st.markdown(
 
 
 # ==========================================
-# SMALL LUXURY NAVIGATION ICONS
+# LUXURY NAVIGATION ICONS
 # ==========================================
 
+basket_count = sum(st.session_state.basket.values())
+
 st.markdown("""
-<style>
-.eb-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 38px;
-    padding: 22px 10px;
-    margin: 20px 0;
-    border-top: 1px solid #DED8CC;
-    border-bottom: 1px solid #DED8CC;
-}
-
-.eb-nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none !important;
-    color: #26372D !important;
-    font-size: 10px;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-}
-
-.eb-nav a:hover {
-    color: #B49A65 !important;
-    transform: translateY(-5px);
-}
-
-.eb-nav svg {
-    width: 21px;
-    height: 21px;
-    stroke: #26372D;
-    fill: none;
-    stroke-width: 1.4;
-}
-
-</style>
-
 <div class="eb-nav">
 
 <a href="#skincare">
@@ -610,104 +593,108 @@ JOURNAL
 CONTACT
 </a>
 
+<a href="#basket">
+<svg viewBox="0 0 24 24">
+<path d="M5 8h14l1 13H4L5 8z"/>
+<path d="M9 9V6a3 3 0 016 0v3"/>
+</svg>
+BAG """ + str(basket_count) + """
+</a>
+
 </div>
 """, unsafe_allow_html=True)
 
 st.divider()
 
 
-
-# ==========================================
-# BASKET COUNT
-# ==========================================
-
-basket_count = sum(st.session_state.basket.values())
-
-st.markdown(
-    f"<p style='text-align:center; font-size:17px;'>"
-    f"♡ YOUR BASKET: {basket_count} ITEM(S)</p>",
-    unsafe_allow_html=True
-)
-
-
 # ==========================================
 # HERO BANNER
 # ==========================================
 
-components.html("""
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-* { box-sizing: border-box; }
-body { margin: 0; background: #F7F4ED; }
-
-.hero {
-    background: #26372D;
-    color: #F7F4ED;
-    text-align: center;
-    padding: 85px 20px;
-    min-height: 390px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: riseIn 1s ease-out;
-}
-
-@keyframes riseIn {
-    from { opacity: 0; transform: translateY(35px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.eyebrow {
-    color: #C5A66A;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 6px;
-    margin-bottom: 25px;
-}
-
-h1 {
-    color: #F7F4ED;
-    font-family: Georgia, serif;
-    font-size: clamp(38px, 5vw, 68px);
-    font-weight: normal;
-    line-height: 1.2;
-    margin: 0 0 22px;
-}
-
-.description {
-    color: #F7F4ED;
-    font-family: Georgia, serif;
-    font-size: 19px;
-    font-style: italic;
-    line-height: 1.8;
-}
-
-.slogan {
-    color: #C5A66A;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 5px;
-    margin-top: 25px;
-}
-
-</style>
-</head>
-<body>
+st.markdown("""
 <div class="hero">
-    <div class="eyebrow">THE NATURAL BEAUTY COLLECTION</div>
-    <h1>Discover the Beauty<br>of Nature</h1>
-    <div class="description">
+
+    <div class="hero-label">
+        THE NATURAL BEAUTY COLLECTION
+    </div>
+
+    <h1>
+        Discover the Beauty<br>of Nature
+    </h1>
+
+    <div class="hero-description">
         Thoughtfully inspired skincare.<br>
         A little luxury in every ritual.
     </div>
-    <div class="slogan">FEEL GOOD. NATURALLY.</div>
+
+    <div class="hero-footer">
+        FEEL GOOD. NATURALLY.
+    </div>
+
 </div>
-</body>
-</html>
-""", height=420, scrolling=False)
+""", unsafe_allow_html=True)
+
+
+# ==========================================
+# STORE VALUES / SMALL ICONS
+# ==========================================
+
+icon1, icon2, icon3, icon4 = st.columns(4)
+
+with icon1:
+    st.markdown("""
+    <div class="icon-box">
+        <div class="icon">🌿</div>
+        <p>BOTANICAL BEAUTY</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with icon2:
+    st.markdown("""
+    <div class="icon-box">
+        <div class="icon">💧</div>
+        <p>DAILY HYDRATION</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with icon3:
+    st.markdown("""
+    <div class="icon-box">
+        <div class="icon">🌸</div>
+        <p>GENTLE CARE</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with icon4:
+    st.markdown("""
+    <div class="icon-box">
+        <div class="icon">✨</div>
+        <p>BEAUTY RITUALS</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+# ==========================================
+# INTRODUCTION
+# ==========================================
+
+st.divider()
+
+st.markdown("""
+<div class="reveal-section">
+
+<p class="section-label">A LITTLE MOMENT FOR YOURSELF</p>
+
+<h2 class="section-title">
+Beauty in Every Ritual
+</h2>
+
+<p class="section-description">
+Thoughtful essentials for your everyday beauty routine.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 
 # ==========================================
@@ -717,7 +704,7 @@ h1 {
 def show_collection(category, anchor, label, title, description):
 
     st.markdown(
-        f'<div id="{anchor}"></div>',
+        f'<div id="{anchor}" class="reveal-section"></div>',
         unsafe_allow_html=True
     )
 
@@ -743,9 +730,15 @@ def show_collection(category, anchor, label, title, description):
 
                 image_path = product["image"]
 
-                if image_path and os.path.exists(image_path):
-                    st.image(image_path, use_container_width=True)
+                if image_path and os.path.isfile(image_path):
+
+                    st.image(
+                        image_path,
+                        use_container_width=True
+                    )
+
                 else:
+
                     st.markdown(
                         f'<div class="product-placeholder">'
                         f'{product["icon"]}</div>',
@@ -773,10 +766,13 @@ def show_collection(category, anchor, label, title, description):
                     key="add_" + product["id"],
                     use_container_width=True
                 ):
+
                     product_id = product["id"]
+
                     st.session_state.basket[product_id] = (
                         st.session_state.basket.get(product_id, 0) + 1
                     )
+
                     st.rerun()
 
 
@@ -824,16 +820,20 @@ show_collection(
 
 
 # ==========================================
-# BASKET DETAILS
+# SHOPPING BASKET
 # ==========================================
+
+st.markdown(
+    '<div id="basket"></div>',
+    unsafe_allow_html=True
+)
 
 st.divider()
 
-st.markdown(
-    '<p class="section-label">YOUR SELECTED FAVOURITES</p>'
-    '<h2 class="section-title">Your Shopping Basket</h2>',
-    unsafe_allow_html=True
-)
+st.markdown("""
+<p class="section-label">YOUR SELECTED FAVOURITES</p>
+<h2 class="section-title">Your Shopping Basket</h2>
+""", unsafe_allow_html=True)
 
 if st.session_state.basket:
 
@@ -855,9 +855,11 @@ if st.session_state.basket:
             st.write(product["name"])
 
         with middle:
-            st.write(f"£{item_total:.2f}  × {quantity}")
+            st.write(f"Quantity: {quantity}")
 
         with right:
+            st.write(f"£{item_total:.2f}")
+
             if st.button("REMOVE", key="remove_" + product_id):
                 del st.session_state.basket[product_id]
                 st.rerun()
@@ -881,18 +883,27 @@ else:
 # ABOUT OUR BRAND
 # ==========================================
 
-st.markdown('<div id="about"></div>', unsafe_allow_html=True)
+st.markdown(
+    '<div id="about"></div>',
+    unsafe_allow_html=True
+)
 
 st.markdown("""
-<div class="philosophy">
+<div class="philosophy reveal-section">
+
     <p style="color:#C5A66A; letter-spacing:5px; font-size:12px;">
         OUR PHILOSOPHY
     </p>
-    <h2 style="font-size:38px;">Less, but More Meaningful</h2>
+
+    <h2 style="font-size:38px;">
+        Less, but More Meaningful
+    </h2>
+
     <p style="color:#F7F4ED; font-size:17px; line-height:1.8;">
         Beauty is found in the little things.<br>
         Make space for simple rituals and moments of care.
     </p>
+
 </div>
 """, unsafe_allow_html=True)
 
@@ -901,11 +912,18 @@ st.markdown("""
 # INGREDIENTS SECTION
 # ==========================================
 
-st.markdown('<div id="ingredients"></div>', unsafe_allow_html=True)
+st.markdown(
+    '<div id="ingredients"></div>',
+    unsafe_allow_html=True
+)
 
 st.markdown("""
 <p class="section-label">INSPIRED BY NATURE</p>
-<h2 class="section-title">A Closer Look at Ingredients</h2>
+
+<h2 class="section-title">
+A Closer Look at Ingredients
+</h2>
+
 <p class="section-description">
 Discover the ingredients and details behind your everyday beauty favourites.
 </p>
@@ -930,11 +948,18 @@ with c:
 # JOURNAL SECTION
 # ==========================================
 
-st.markdown('<div id="journal"></div>', unsafe_allow_html=True)
+st.markdown(
+    '<div id="journal"></div>',
+    unsafe_allow_html=True
+)
 
 st.markdown("""
 <p class="section-label">NOTES FROM EARTH & BLOOM</p>
-<h2 class="section-title">The Beauty Journal</h2>
+
+<h2 class="section-title">
+The Beauty Journal
+</h2>
+
 <p class="section-description">
 Little ideas for making time for yourself.
 </p>
@@ -959,17 +984,25 @@ with j3:
 # CONTACT SECTION
 # ==========================================
 
-st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
+st.markdown(
+    '<div id="contact"></div>',
+    unsafe_allow_html=True
+)
 
 st.markdown("""
 <p class="section-label">WE WOULD LOVE TO HEAR FROM YOU</p>
-<h2 class="section-title">Contact EARTH & BLOOM</h2>
+
+<h2 class="section-title">
+Contact EARTH & BLOOM
+</h2>
+
 <p class="section-description">
 Thank you for visiting our little beauty world.
 </p>
 """, unsafe_allow_html=True)
 
 with st.form("contact_form"):
+
     customer_name = st.text_input("Your name")
     customer_email = st.text_input("Your email")
     customer_message = st.text_area("Your message")
@@ -977,9 +1010,13 @@ with st.form("contact_form"):
     submitted = st.form_submit_button("SEND MESSAGE")
 
     if submitted:
+
         if customer_name and customer_email and customer_message:
+
             st.success("Thank you! Your message has been entered.")
+
         else:
+
             st.warning("Please complete all three fields.")
 
 
@@ -989,14 +1026,24 @@ with st.form("contact_form"):
 
 st.markdown("""
 <div class="footer">
-    <h2 style="color:#F7F4ED;">🌿 EARTH & BLOOM</h2>
+
+    <h2 style="color:#F7F4ED;">
+        🌿 EARTH & BLOOM
+    </h2>
+
     <p style="color:#C5A66A; letter-spacing:4px;">
         FEEL GOOD. NATURALLY.
     </p>
+
     <p>Beauty inspired by nature.</p>
-    <p style="font-size:12px;">© 2026 EARTH & BLOOM</p>
+
+    <p style="font-size:12px;">
+        © 2026 EARTH & BLOOM
+    </p>
+
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
