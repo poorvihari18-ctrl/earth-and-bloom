@@ -986,8 +986,6 @@ components.html("""
 </div>
 """, height=300, scrolling=False)
 
-
-
 # ==========================================
 # INGREDIENTS SECTION
 # ==========================================
