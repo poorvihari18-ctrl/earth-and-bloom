@@ -391,7 +391,7 @@ products = [
         "name": "Gentle Facial Cleanser",
         "price": 11.99,
         "category": "Skincare",
-        "image": "gentle_facial_cleanser.png",
+        "image": "Screenshot 2026-11-16 115817.png",
         "icon": "🫧",
         "description": "A simple first step in your skincare routine."
     },
