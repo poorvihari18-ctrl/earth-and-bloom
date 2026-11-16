@@ -365,7 +365,7 @@ products = [
         "price": 12.99,
         "category": "Skincare",
         "image": "Screenshot 2026-11-14 141225.jpg",
-        "icon": "🌿",
+        "icon": "🌿", 
         "description": "A gentle everyday moisturising essential."
     },
     {
