@@ -412,7 +412,7 @@ products = [
         "name": "Botanical Body Wash",
         "price": 9.99,
         "category": "Body Care",
-        "image": None,
+        "image":"Screenshot 2026-11-16 1234300.png",
         "icon": "🌿",
         "description": "A refreshing everyday body wash."
     },
@@ -421,7 +421,7 @@ products = [
         "name": "Rose Body Scrub",
         "price": 12.99,
         "category": "Body Care",
-        "image": None,
+        "image":"Screenshot 2026-11-16 124327.png",
         "icon": "🌹",
         "description": "A lovely addition to your body-care ritual."
     },
@@ -430,7 +430,7 @@ products = [
         "name": "Nourishing Body Lotion",
         "price": 13.99,
         "category": "Body Care",
-        "image": None,
+        "image":"Screenshot 2026-11-16 124551.png",
         "icon": "🌼",
         "description": "A daily moisturising essential."
     },
@@ -439,7 +439,7 @@ products = [
         "name": "Soft Hands Hand Cream",
         "price": 6.99,
         "category": "Body Care",
-        "image": None,
+        "image":"Screenshot 2026-11-16 124821.png",
         "icon": "🤍",
         "description": "A little everyday care for your hands."
     },
