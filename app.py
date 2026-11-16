@@ -400,7 +400,7 @@ products = [
         "name": "Vitamin C Face Serum",
         "price": 16.99,
         "category": "Skincare",
-        "image": "vitamin_c_face_serum.png",
+        "image": "Screenshot 2026-11-16 115923.png",
         "icon": "✨",
         "description": "A bright addition to your daily routine."
     },
