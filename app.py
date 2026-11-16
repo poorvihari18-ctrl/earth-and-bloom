@@ -255,6 +255,62 @@ hr {
     }
 }
 </style>
+
+/* =================================
+   EARTH & BLOOM ANIMATIONS
+================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gentle upward entrance */
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animate website sections */
+[data-testid="stVerticalBlock"] > div {
+    animation: riseIn 0.8s ease both;
+}
+
+/* Product image hover movement */
+[data-testid="stImage"] img {
+    transition: transform 0.5s ease;
+}
+
+[data-testid="stImage"] img:hover {
+    transform: translateY(-7px) scale(1.02);
+}
+
+/* Buttons gently lift when hovered */
+.stButton button {
+    transition: all 0.3s ease;
+}
+
+.stButton button:hover {
+    transform: translateY(-3px);
+}
+
+/* Respect visitors who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 """, unsafe_allow_html=True)
 
 
