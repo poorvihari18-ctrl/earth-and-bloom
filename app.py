@@ -462,29 +462,103 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Small navigation icons
 
-nav1, nav2, nav3, nav4, nav5, nav6 = st.columns(6)
+# ==========================================
+# SMALL LUXURY NAVIGATION ICONS
+# ==========================================
 
-with nav1:
-    st.markdown('<div class="icon-box"><div class="icon">🌿</div><p><a class="nav-link" href="#skincare">SHOP</a></p></div>', unsafe_allow_html=True)
+st.markdown("""
+<style>
+.eb-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 38px;
+    padding: 22px 10px;
+    margin: 20px 0;
+    border-top: 1px solid #DED8CC;
+    border-bottom: 1px solid #DED8CC;
+}
 
-with nav2:
-    st.markdown('<div class="icon-box"><div class="icon">🫧</div><p><a class="nav-link" href="#body-care">RITUALS</a></p></div>', unsafe_allow_html=True)
+.eb-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+    color: #26372D !important;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
 
-with nav3:
-    st.markdown('<div class="icon-box"><div class="icon">🌸</div><p><a class="nav-link" href="#ingredients">INGREDIENTS</a></p></div>', unsafe_allow_html=True)
+.eb-nav a:hover {
+    color: #B49A65 !important;
+    transform: translateY(-5px);
+}
 
-with nav4:
-    st.markdown('<div class="icon-box"><div class="icon">🤍</div><p><a class="nav-link" href="#about">ABOUT</a></p></div>', unsafe_allow_html=True)
+.eb-nav svg {
+    width: 21px;
+    height: 21px;
+    stroke: #26372D;
+    fill: none;
+    stroke-width: 1.4;
+}
 
-with nav5:
-    st.markdown('<div class="icon-box"><div class="icon">📖</div><p><a class="nav-link" href="#journal">JOURNAL</a></p></div>', unsafe_allow_html=True)
+</style>
 
-with nav6:
-    st.markdown('<div class="icon-box"><div class="icon">✉️</div><p><a class="nav-link" href="#contact">CONTACT</a></p></div>', unsafe_allow_html=True)
+<div class="eb-nav">
+
+<a href="#skincare">
+<svg viewBox="0 0 24 24">
+<path d="M12 22V11M12 15C4 15 4 7 4 7s8-1 8 8M12 12c0-7 8-8 8-8s0 8-8 8"/>
+</svg>
+SHOP
+</a>
+
+<a href="#body-care">
+<svg viewBox="0 0 24 24">
+<path d="M12 2C9 7 5 11 5 15a7 7 0 0014 0c0-4-4-8-7-13z"/>
+</svg>
+RITUALS
+</a>
+
+<a href="#ingredients">
+<svg viewBox="0 0 24 24">
+<path d="M12 22V11M12 15C5 15 5 7 5 7s7-1 7 8M12 12c0-7 7-8 7-8s0 8-7 8"/>
+</svg>
+INGREDIENTS
+</a>
+
+<a href="#about">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="8" r="4"/>
+<path d="M4 21c0-5 3-8 8-8s8 3 8 8"/>
+</svg>
+ABOUT
+</a>
+
+<a href="#journal">
+<svg viewBox="0 0 24 24">
+<path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/>
+</svg>
+JOURNAL
+</a>
+
+<a href="#contact">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="5" width="18" height="14" rx="2"/>
+<path d="m3 7 9 7 9-7"/>
+</svg>
+CONTACT
+</a>
+
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
+
 
 
 # ==========================================
