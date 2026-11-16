@@ -607,32 +607,109 @@ BAG """ + str(basket_count) + """
 st.divider()
 
 
+
 # ==========================================
 # HERO BANNER
 # ==========================================
 
-st.markdown("""
-<div class="hero">
+components.html("""
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <div class="hero-label">
-        THE NATURAL BEAUTY COLLECTION
+body {
+    margin: 0;
+    background: #F7F4ED;
+    font-family: 'DM Sans', Arial, sans-serif;
+}
+
+.hero {
+    background: #26372D;
+    color: #F7F4ED;
+    text-align: center;
+    padding: 75px 20px;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: riseIn 1s ease both;
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-label {
+    color: #C5A66A;
+    font-size: 12px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    color: #F7F4ED;
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0 0 22px;
+}
+
+.hero-description {
+    color: #F7F4ED;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.hero-footer {
+    color: #C5A66A;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 60px 15px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-label">
+            THE NATURAL BEAUTY COLLECTION
+        </div>
+
+        <h1>Discover the Beauty<br>of Nature</h1>
+
+        <div class="hero-description">
+            Thoughtfully inspired skincare.<br>
+            A little luxury in every ritual.
+        </div>
+
+        <div class="hero-footer">
+            FEEL GOOD. NATURALLY.
+        </div>
     </div>
+</body>
+</html>
+""", height=420, scrolling=False)
 
-    <h1>
-        Discover the Beauty<br>of Nature
-    </h1>
-
-    <div class="hero-description">
-        Thoughtfully inspired skincare.<br>
-        A little luxury in every ritual.
-    </div>
-
-    <div class="hero-footer">
-        FEEL GOOD. NATURALLY.
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
 
 
 # ==========================================
