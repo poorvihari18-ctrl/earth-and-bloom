@@ -508,7 +508,7 @@ products = [
         "name": "Botanical Herbal Tea",
         "price": 7.99,
         "category": "Wellness",
-        "image": None,
+        "image": "Screenshot 2026-11-19 185131.png",
         "icon": "🍵",
         "description": "A comforting tea-time moment."
     },
@@ -517,7 +517,7 @@ products = [
         "name": "Natural Scented Candle",
         "price": 15.99,
         "category": "Wellness",
-        "image": None,
+        "image": "Screenshot 2026-11-19 185332.png",
         "icon": "🕯️",
         "description": "Create a peaceful atmosphere at home."
     }
