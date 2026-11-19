@@ -460,7 +460,7 @@ products = [
         "name": "Botanical Shampoo",
         "price": 10.99,
         "category": "Hair Care",
-        "image": None,
+        "image": "Screenshot 2026-11-19 182210.png",
         "icon": "🌿",
         "description": "An everyday hair-care essential."
     },
@@ -469,7 +469,7 @@ products = [
         "name": "Nourishing Conditioner",
         "price": 11.99,
         "category": "Hair Care",
-        "image": None,
+        "image": "Screenshot 2026-11-19 182416.png",
         "icon": "🌸",
         "description": "A soft finishing step after shampoo."
     },
@@ -478,7 +478,7 @@ products = [
         "name": "Repair Hair Mask",
         "price": 15.99,
         "category": "Hair Care",
-        "image": None,
+        "image": "Screenshot 2026-11-19 182537.png",
         "icon": "🥑",
         "description": "A little extra care for your hair."
     },
@@ -487,7 +487,7 @@ products = [
         "name": "Silky Hair Serum",
         "price": 12.99,
         "category": "Hair Care",
-        "image": None,
+        "image": "Screenshot 2026-11-19 182705.png",
         "icon": "💧",
         "description": "A lightweight finishing touch for your hair."
     },
@@ -496,7 +496,7 @@ products = [
         "name": "Botanical Hair Oil",
         "price": 13.99,
         "category": "Hair Care",
-        "image": None,
+        "image": "Screenshot 2026-11-19 182845.png",
         "icon": "🌿",
         "description": "An addition to your hair-care ritual."
     },
